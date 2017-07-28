@@ -74,10 +74,10 @@ public class Controller {
         config.setPolitenessDelay(1000);
  
         /*
-         * 设置请求的网页的深度（后面专门会讲）  设置5 为两层
+         * 设置请求的网页的深度（后面专门会讲）  设置2 为两层
          * 默认值-1 无限深度
          */
-        config.setMaxDepthOfCrawling(5);
+//        config.setMaxDepthOfCrawling(2);
  
         /*
          * 设置爬取的最大网页数 这里设置1000  最多爬取1000次

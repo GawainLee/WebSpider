@@ -12,9 +12,8 @@ import edu.uci.ics.crawler4j.url.WebURL;
 
 public class MyCrawler extends WebCrawler {
 	  
-    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
-                                                           + "|png|mp3|mp3|mp4|zip|gz))$");
-  
+    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg|png|mp3|ico|mp4|zip|gz))$");
+//    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|))$");
     /**
      * This method receives two parameters. The first parameter is the page
      * in which we have discovered this new url and the second parameter is
@@ -28,9 +27,14 @@ public class MyCrawler extends WebCrawler {
      @Override
      public boolean shouldVisit(Page referringPage, WebURL url) {
          String href = url.getURL().toLowerCase();// 得到小写的url
+         System.out.println("URL : " + href);
+         System.out.println("URL Strar With : " + ((!FILTERS.matcher(href).matches()) && href.startsWith("http://www.humansa.com.hk/")));
          // 只接受 http://www.humansa.com.hk/ 开头的url
-         return !FILTERS.matcher(href).matches()
-                && href.startsWith("http://www.youtube.com/");
+//         return true;
+         return (!FILTERS.matcher(href).matches())//;
+//                && href.startsWith("http://www.humansa.com.hk/");
+         		&& href.startsWith("http://xh.5156edu.com/");
+//         && (href.startsWith("http://www.youtube.com/") || href.startsWith("https://www.youtube.com/"));
      }
   
      /**
